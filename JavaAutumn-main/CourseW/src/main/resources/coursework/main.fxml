@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="600.0" maxWidth="1110.0" prefHeight="440.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursework.fxControllers.Main">
+   <children>
+      <TabPane fx:id="allTabs" layoutY="7.0" maxHeight="1000.0" maxWidth="1000.0" prefHeight="393.0" prefWidth="610.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab fx:id="bookExchangeTab" onSelectionChanged="#loadData" text="Book Exchange">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="401.0" prefWidth="636.0">
+                     <children>
+                        <ListView fx:id="availableBookList" layoutX="14.0" layoutY="27.0" onMouseClicked="#loadPublicationInfo" prefHeight="332.0" prefWidth="158.0" />
+                        <Label layoutX="14.0" layoutY="6.0" text="Available Books:" />
+                        <TextArea fx:id="aboutBook" layoutX="188.0" layoutY="27.0" prefHeight="70.0" prefWidth="200.0" />
+                        <TextArea fx:id="ownerBio" layoutX="191.0" layoutY="165.0" prefHeight="158.0" prefWidth="195.0" />
+                        <Button fx:id="leaveReviewButton" layoutX="191.0" layoutY="332.0" mnemonicParsing="false" onAction="#loadReviewWindow" text="Leave Review" />
+                        <Label fx:id="ownerInfo" layoutX="191.0" layoutY="137.0" text="Owner info:" />
+                        <ListView fx:id="chatList" layoutX="400.0" layoutY="26.0" prefHeight="253.0" prefWidth="186.0" />
+                        <TextArea fx:id="messageArea" layoutX="400.0" layoutY="281.0" prefHeight="51.0" prefWidth="187.0" />
+                        <Button layoutX="458.0" layoutY="334.0" mnemonicParsing="false" onAction="#sendMessage" text="Add message" />
+                        <Button layoutX="289.0" layoutY="332.0" mnemonicParsing="false" onAction="#reserveBook" prefHeight="25.0" prefWidth="98.0" text="Reserve Book" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab fx:id="UserTab" onSelectionChanged="#loadData" text="User">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="userListField" layoutX="14.0" layoutY="14.0" onMouseClicked="#loadUserData" prefHeight="339.0" prefWidth="205.0" />
+                        <TextField fx:id="loginField" layoutX="239.0" layoutY="23.0" promptText="login" />
+                        <TextField fx:id="nameField" layoutX="240.0" layoutY="61.0" promptText="name" />
+                        <PasswordField fx:id="pswField" layoutX="240.0" layoutY="106.0" promptText="password" />
+                        <TextField fx:id="surnameField" layoutX="241.0" layoutY="151.0" promptText="surname" />
+                        <TextField fx:id="addressField" layoutX="234.0" layoutY="195.0" prefHeight="26.0" prefWidth="174.0" promptText="address" />
+                        <DatePicker fx:id="bDate" layoutX="230.0" layoutY="242.0" />
+                        <Button layoutX="241.0" layoutY="318.0" mnemonicParsing="false" onAction="#createNewUser" text="Add" />
+                        <TextField fx:id="phoneNumField" layoutX="426.0" layoutY="23.0" promptText="phone number" />
+                        <RadioButton fx:id="adminChk" layoutX="426.0" layoutY="65.0" mnemonicParsing="false" onAction="#disableFields" text="Admin">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="userType" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="clientChk" layoutX="525.0" layoutY="65.0" mnemonicParsing="false" onAction="#disableFields" selected="true" text="Client" toggleGroup="$userType" />
+                        <Button layoutX="294.0" layoutY="318.0" mnemonicParsing="false" onAction="#updateUser" text="Update" />
+                        <Button layoutX="379.0" layoutY="318.0" mnemonicParsing="false" onAction="#deleteUser" text="Delete" />
+                        <Button layoutX="470.0" layoutY="318.0" mnemonicParsing="false" onAction="#loadProductForm" text="Products Window" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="publicationManagementTab" onSelectionChanged="#loadData" text="Publication Management">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="500.0">
+                     <children>
+                        <TableView fx:id="publicationTable" layoutX="-1.0" layoutY="-2.0" prefHeight="375.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="colPubId" prefWidth="75.0" text="Id" />
+                            <TableColumn fx:id="colAuthor" prefWidth="75.0" text="Author" />
+                              <TableColumn fx:id="colTitle" prefWidth="75.0" text="Title" />
+                              <TableColumn fx:id="colStatus" prefWidth="104.0" text="PublicationStatus" />
+                              <TableColumn fx:id="colOwner" minWidth="9.0" prefWidth="88.0" text="Owner" />
+                              <TableColumn fx:id="dummyColPub" minWidth="9.0" prefWidth="182.0" text="Action" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="userManagementTab" onSelectionChanged="#loadData" text="Alternative User Management">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="userTable" prefHeight="372.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="colId" prefWidth="75.0" text="Id" />
+                            <TableColumn fx:id="colLogin" prefWidth="75.0" text="Username" />
+                              <TableColumn fx:id="colPsw" prefWidth="75.0" text="Password" />
+                              <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="colSurname" prefWidth="75.0" text="Surname" />
+                              <TableColumn fx:id="colAddress" prefWidth="75.0" text="Address" />
+                              <TableColumn fx:id="colPhone" prefWidth="75.0" text="Phone" />
+                              <TableColumn fx:id="dummyCol" prefWidth="75.0" text="Action" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="clientBookManagementTab" onSelectionChanged="#loadData" text="My Books">
+              <content>
+                <AnchorPane maxHeight="200.0" maxWidth="1000.0" minHeight="0.0" minWidth="0.0" prefHeight="200" prefWidth="1000">
+                     <children>
+                        <TableView fx:id="myBookList" layoutX="4.0" layoutY="23.0" prefHeight="161.0" prefWidth="610.0">
+                          <columns>
+                              <TableColumn fx:id="collBookId" prefWidth="51.0" text="Id" />
+                            <TableColumn fx:id="colBookTitle" prefWidth="88.0" text="Title" />
+                            <TableColumn fx:id="colRequestUser" prefWidth="98.0" text="User" />
+                              <TableColumn fx:id="colRequestDate" prefWidth="116.0" text="Request Date" />
+                              <TableColumn fx:id="colBookStatus" prefWidth="112.0" text="Status" />
+                              <TableColumn fx:id="colHistory" prefWidth="104.0" text="History" />
+                              <TableColumn fx:id="colDelete" prefWidth="126.0" text="Delete" />
+                              <TableColumn fx:id="colChat" prefWidth="126.0" text="View chat" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="14.0" layoutY="6.0" text="My owned books:" />
+                        <ListView layoutX="3.0" layoutY="220.0" prefHeight="147.0" prefWidth="591.0" />
+                        <Label layoutX="16.0" layoutY="199.0" text="Borrowed books:" />
+                        <Button layoutX="460.0" layoutY="187.0" mnemonicParsing="false" onAction="#addNewPublication" text="Add new publication" />
+                        <Button layoutX="324.0" layoutY="187.0" mnemonicParsing="false" onAction="#updatePublication" text="Update publication" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="commentManagementTab" onSelectionChanged="#loadData" text="Comment Management">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="commentTable" layoutX="11.0" layoutY="21.0" prefHeight="346.0" prefWidth="588.0">
+                          <columns>
+                              <TableColumn fx:id="colComId" prefWidth="51.0" text="Id" />
+                            <TableColumn fx:id="colTitleCom" prefWidth="101.60003471374512" text="Title" />
+                            <TableColumn fx:id="colBody" prefWidth="134.39997100830078" text="Body" />
+                              <TableColumn fx:id="colCommentOwner" prefWidth="119.20001220703125" text="Comment Owner" />
+                              <TableColumn fx:id="colParentCom" prefWidth="119.20001220703125" text="Parent Comment" />
+                              <TableColumn fx:id="colDeleteCom" prefWidth="119.20001220703125" text="Action" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

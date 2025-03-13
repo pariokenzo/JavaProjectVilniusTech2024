@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coursework.fxControllers.ProductWindow">
+    <tabs>
+        <Tab fx:id="bookTab" text="Book">
+            <content>
+                <AnchorPane prefHeight="400.0" prefWidth="600.0">
+                    <children>
+                        <ComboBox fx:id="formatComboBox" layoutX="337.0" layoutY="28.0" prefWidth="150.0" promptText="format" />
+                        <ComboBox fx:id="demographicComboBox" layoutX="337.0" layoutY="65.0" prefWidth="150.0" promptText="demographic" />
+                        <ComboBox fx:id="genreComboBox" layoutX="337.0" layoutY="99.0" prefWidth="150.0" promptText="genre" />
+                        <ComboBox fx:id="languageComboBox" layoutX="337.0" layoutY="136.0" prefWidth="150.0" promptText="language" />
+                        <ComboBox fx:id="publicationStatusComboBox" layoutX="337.0" layoutY="174.0" prefWidth="150.0" promptText="publication status" />
+                        <Button layoutX="284.0" layoutY="340.0" mnemonicParsing="false" onAction="#createBook" text="add" />
+                        <Button fx:id="updateBookButton" layoutX="359.0" layoutY="340.0" mnemonicParsing="false" onAction="#updateBook" text="update" />
+                        <Button fx:id="deleteBookButton" layoutX="450.0" layoutY="340.0" mnemonicParsing="false" onAction="#deleteBook" text="delete" />
+                        <TextField fx:id="titleField" alignment="TOP_CENTER" layoutX="263.0" layoutY="218.0" prefHeight="26.0" prefWidth="309.0" promptText="Title of the book" />
+                        <TextField fx:id="authorField" alignment="TOP_CENTER" layoutX="263.0" layoutY="280.0" prefHeight="26.0" prefWidth="309.0" promptText="Author of the book" />
+                  <ListView fx:id="bookList" layoutX="20.0" layoutY="12.0" prefHeight="341.0" prefWidth="200.0" />
+                  <Button fx:id="updateButtonClient" layoutX="359.0" layoutY="340.0" mnemonicParsing="false" onAction="#updateBookClient" text="update" />
+
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="mangaTab" text="Manga">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <CheckBox fx:id="isColor" layoutX="401.0" layoutY="147.0" mnemonicParsing="false" text="Color" />
+                        <TextField fx:id="illustratorField" layoutX="352.0" layoutY="33.0" promptText="illustrator" />
+                        <Spinner fx:id="volumeNumber" editable="true" layoutX="353.0" layoutY="108.0" />
+                        <Button fx:id="deleteMangaButton" layoutX="492.0" layoutY="322.0" mnemonicParsing="false" onAction="#deleteManga" text="delete" />
+                        <Button fx:id="updateMangaButton" layoutX="374.0" layoutY="322.0" mnemonicParsing="false" onAction="#updateManga" text="update" />
+                        <Button layoutX="291.0" layoutY="322.0" mnemonicParsing="false" onAction="#createManga" text="add" />
+                        <ComboBox fx:id="demographicComboBoxManga" layoutX="352.0" layoutY="174.0" prefWidth="150.0" />
+                        <TextField fx:id="mangaAuthorField" layoutX="352.0" layoutY="210.0" promptText="author" />
+                        <TextField fx:id="mangaTitleField" layoutX="353.0" layoutY="253.0" promptText="title" />
+                  <TextField fx:id="originalLanguageText" layoutX="354.0" layoutY="70.0" promptText="Original language" />
+                  <ListView fx:id="mangaList" layoutX="31.0" layoutY="21.0" prefHeight="347.0" prefWidth="200.0" />
+                  <Button fx:id="updateMangaClient" layoutX="374.0" layoutY="322.0" mnemonicParsing="false" onAction="#updateMangaClient" text="update" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
